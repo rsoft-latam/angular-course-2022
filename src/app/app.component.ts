@@ -19,7 +19,7 @@ export class AppComponent {
       (prev, value, index)=> prev + value, 0
     )
     console.log("auxReduce: ", auxReduce)
-    
+
     // JSON Operators 
     const auxJSON = {
       id: 1,
@@ -37,6 +37,45 @@ export class AppComponent {
 
     const auxValues = Object.values(auxJSON)
     console.log("auxValues:", auxValues)   
+
+
+    //CONST
+    const a = 1
+    console.log('CONST:', a)
+
+    // LET
+    //for(let i = 1; i<= 5; i++){//console.log('INDEX:', i)}
+    //for(let i = 1; i<= 5; i++){ // console.log('INDEX:', i}
+    //for(let i = 1; i<= 5; i++){ //console.log('INDEX:', i)}
+
+    //SPREAD OPERATOR
+    const b = [1,2,3,4,5,6]
+    const c = [...b ,7,8,9,10]
+    console.log("SPREAD:", c)
+    
+    // REST OPERATOR
+    this.getREST(1,2, 'hola')
+
+    const person = {
+      id: 1,
+      name: 'JUAN',
+      country: {
+        idCountry: 1,
+        cod: 'LP'
+      }
+    }
+
+    // DESESTRUCTURACION
+    //const C = person.country
+    //const ID = person.id
+    const {country, id} = person;
+    console.log('country:', country, id)
   }
+  // REST OPERATOR
+  getREST(...params: any[]){
+    console.log('REST:', params)
+  }
+
+
 
 }
