@@ -1,10 +1,15 @@
-<app-person [name]="title" lastName="'test'" [age]="0"></app-person>
+<app-person [nametest]="title" lastName="test" [age]="0" (print)="getPrint($event)"></app-person>
 
-<app-person [name]="'JUAN'" lastName="'PEREZ'" [age]="25"></app-person>
+<app-person [nametest]="'JUAN'" lastName="PEREZ" [age]="25" (print)="getPrint($event)"></app-person>
 
-<app-person name="'MARIA'" lastName="'PEREZ'" [age]="20"></app-person>
+<app-person nametest="MARIA" lastName="PEREZ" [age]="20" (print)="getPrint($event)"></app-person>
 
 
 
 // [   ]  => codigo typescript
 // name = "asdasdasdasdas"
+
+
+button => (click) => sendPrint()
+
+app-person => (print) => getPrint()
