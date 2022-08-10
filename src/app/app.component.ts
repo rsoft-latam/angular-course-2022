@@ -20,4 +20,12 @@ export class AppComponent {
     this.person = event;
   }
 
+  getLastName(event:any):void{
+    console.log('last name', event)
+  }
+
+  printName(name:any) {
+    console.log('print name:', name.value);
+  }
+
 }
