@@ -1,5 +1,6 @@
 import {
   Component,
+  DoCheck,
   Input,
   OnChanges,
   OnInit,
@@ -11,9 +12,12 @@ import {
   templateUrl: './test1.component.html',
   styleUrls: ['./test1.component.css'],
 })
-export class Test1Component implements OnInit, OnChanges {
+export class Test1Component implements OnInit, OnChanges, DoCheck {
   @Input() name!: string;
   @Input() lastName: string = "perez";
+
+  public middleName:string = '';
+  public generalData:string = '';
 
   constructor() {
     console.log('constructor');
@@ -22,7 +26,8 @@ export class Test1Component implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     console.log('on changes', changes, changes['name'].isFirstChange());
 
-    if(changes['name'].currentValue !== undefined && !changes['name'].isFirstChange()){
+    if( changes['name'].currentValue !== undefined 
+         && !changes['name'].isFirstChange()  ){
       console.log('call country service')
     }
 
@@ -31,4 +36,10 @@ export class Test1Component implements OnInit, OnChanges {
   ngOnInit(): void {
     console.log('on init');
   }
+
+  ngDoCheck():void{
+    console.log('Do Check')
+    this.generalData = this.name+  "-" + this.lastName + "-" + this.middleName
+  }
+
 }
