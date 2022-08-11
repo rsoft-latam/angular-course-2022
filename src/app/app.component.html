@@ -1,3 +1,5 @@
 <p>ANGULAR</p>
 
-<app-test1></app-test1>
+<app-test1 [name]="name" [lastName]="lastName"></app-test1>
+
+<button (click)="name = 'juan'; lastName = 'santander'">change name</button>
