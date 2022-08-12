@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'test';
 
+  level:number = 1;
+
   enablePerson: boolean = true;
 }

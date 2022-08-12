@@ -20,9 +20,19 @@
 <div *ngFor="let item of ['a','b','c','d','e']; let i = index;">
   <app-person [name]="item">
     <p>hola - {{item}} - index {{i}}</p>
-    <button>hola - {{item}</button>
+    <button>hola - {{item}}</button>
   </app-person>
 </div>
+
+<input type="number" [(ngModel)]="level">
+
+<div [ngSwitch]="level">
+  <p *ngSwitchCase="1">nivel es 1</p>
+  <p *ngSwitchCase="2">nivel es 2</p>
+  <p *ngSwitchCase="3">nivel es 3</p>
+  <p *ngSwitchDefault>opcion por defecto</p>
+</div>
+
 
 
 
