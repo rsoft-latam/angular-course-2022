@@ -1,6 +1,13 @@
 <p>ANGULAR</p>
 
-<app-person>
+<button (click)="enablePerson = !enablePerson">crear/destruir</button>
+
+<app-person *ngIf="enablePerson">
+  <button>print</button>
+</app-person>
+
+
+<app-person [hidden]="enablePerson">
   <button>print</button>
 </app-person>
 
