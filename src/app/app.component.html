@@ -6,8 +6,27 @@
   <button>print</button>
 </app-person>
 
-
 <app-person [hidden]="enablePerson">
   <button>print</button>
 </app-person>
+
+
+
+<p *ngIf="enablePerson; else testelse">enablePerson es true</p>
+<ng-template #testelse>
+  <p>enablePerson es false</p>
+</ng-template>
+
+<div *ngFor="let item of ['a','b','c','d','e']; let i = index;">
+  <app-person [name]="item">
+    <p>hola - {{item}} - index {{i}}</p>
+    <button>hola - {{item}</button>
+  </app-person>
+</div>
+
+
+
+
+
+
 

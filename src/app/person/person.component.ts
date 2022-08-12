@@ -48,7 +48,5 @@ export class PersonComponent
 
   ngOnDestroy() {
     console.log('ngOnDestroy');
-
-    
   }
 }
