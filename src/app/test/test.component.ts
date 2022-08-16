@@ -11,11 +11,19 @@ export class TestComponent implements OnInit {
   get message(){ return this._message }
   set message(value:string){ this._message = value + '-' }
 
+
   private _message = ''; 
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  get name(){
+    return ''
+  }
+  set name(value:string){
+    this.name  = value;
   }
 
 }
