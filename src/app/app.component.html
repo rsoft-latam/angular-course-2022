@@ -15,5 +15,31 @@
 </div>
 
 
-<input type="text" [(ngModel)]="title">
+<input type="text" [(ngModel)]="title"> title
+<input type="number" [(ngModel)]="size"> zise
 <app-test [message]="title"></app-test>
+
+<div [ngStyle]="{
+   'background': 'yellow',
+   'color': title,
+   'size': title
+  }">
+  NG STYLE 1
+</div>
+
+<div [style.font-size.px]="size">
+NG STYLE 2
+</div>
+
+
+<div [ngClass]="{
+  'test1': size === 1,
+  'test2': size === 2,
+  'test3': size === 3  
+}">
+NG CLASS 1
+</div>
+
+<div [class.test1]="size === 1">
+NG CLASS 2
+</div>
