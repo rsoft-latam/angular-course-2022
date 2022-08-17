@@ -2,4 +2,6 @@
 <p [overUpb]="color">ANGULAR</p>
 
 
-<div [overUpb]="color">ANGULAR DIV</div>
+<div [overUpb]="color" (sendMessage)="getMessage($event)">ANGULAR DIV</div>
+
+<!--<div (overUpb)="getMessage($event)">ANGULAR DIV</div>-->
