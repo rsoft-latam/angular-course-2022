@@ -9,6 +9,12 @@
 
 <button (click)="data.push(4)">Add</button>
 
+<button [routerLink]="'/user'">go to user view</button>
+<button [routerLink]="'/'">go to root view</button>
+
+<button (click)="goToUser()">go to user from ts</button>
+<button (click)="goToHome()">go to home from ts</button>
+
 <div style="border: 2px solid red;">
 <router-outlet>
   
