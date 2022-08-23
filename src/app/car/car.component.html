@@ -1,0 +1,30 @@
+<div style="border: 2px solid red; display: flex; flex-direction: column; height: 300px;"
+     [style.background-color]="selectedColor"
+     (customOver)="showId = $event">
+
+  <span *ngIf="showMessage" style="border: 2px solid yellow;">
+    No disponible
+  </span>
+  <span *ngIf="showId">id: {{id}}</span>
+
+  <span>Type: {{type | uppercase}}</span>
+  <span>Color: {{selectedColor}}</span>
+  <span>Capacity: {{capacity}}</span>
+  <span>Create Date: {{createDate | date: 'dd/MM/yy'}}</span>
+  <span>Price: {{price | customPrice:moneyType:timeType}}</span>
+
+  <ng-container *ngFor="let color of colors">
+    <button [style.background-color]="color"
+            class="btn"
+            (click)="selectedColor = color;">
+      {{color}}
+    </button>
+  </ng-container>
+
+  <button (click)="onBuyRent()"
+          class="btn"
+          [disabled]="showMessage">
+    {{ category === 'sale' ? 'Buy' : 'Rent' }}
+  </button>
+
+</div>
