@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ImpurePipe } from './impure.pipe';
 import { PurePipe } from './pure.pipe';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ImpurePipe,
-    PurePipe
+    PurePipe,
+    UserComponent
   ],
   imports: [
     BrowserModule,
