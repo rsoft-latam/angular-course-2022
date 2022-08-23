@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'test';
 
+  data:number[] = [1,2,3,4,5,6,7,8,9]
+
   constructor(){
     console.log('-------PURE')
     console.log(this.pureExample(3,5))
