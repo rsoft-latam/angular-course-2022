@@ -14,7 +14,6 @@ export class View3Component implements OnInit {
       console.log('query params: ', params);
     });
 
-
     console.log('snapshop: ', this.activatedRoute.snapshot.queryParams)
   }
 }
