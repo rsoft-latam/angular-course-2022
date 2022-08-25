@@ -1,4 +1,13 @@
 <p>ANGULAR</p>
 
+<input type="text" [(ngModel)]="id">
+
+<button [routerLink]="['view1', id]">view1</button>
+<button [routerLink]="['view2', id, 'listNames', id]">view2</button>
+
+
+<button (click)="goView1()">view1 from ts</button>
+<button (click)="goView2()">view2 from ts</button>
+
 <router-outlet>
 </router-outlet>
