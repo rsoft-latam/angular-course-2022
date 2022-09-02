@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {map, Observable} from "rxjs";
 import {environment} from "../environments/environment";
 
 @Injectable({
@@ -8,12 +8,20 @@ import {environment} from "../environments/environment";
 })
 export class ProductService {
 
-  private url:string = environment.app.apiUrlBase;
+  private url: string = environment.app.apiUrlBase;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
-  public getAllProducts(): Observable<any>{
-    return this.http.get( `${this.url}/products.json`)
+  public getAllProducts(): Observable<any> {
+    return this.http.get(
+      `${this.url}/products.json`).pipe(
+      map(s => Object.entries(s)),
+      map(s => s.map(s => ({id: s[0], ...s[1]}))))
+  }
+
+  public createProduct(body: any): Observable<any> {
+    return this.http.post(`${this.url}/products.json`, body)
   }
 
 }
