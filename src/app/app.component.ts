@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { data } from './data';
+import {Component, OnInit} from '@angular/core';
+import {CarService} from "./car.service";
+import {ICar} from "./utils/car.model";
 
 @Component({
   selector: 'app-root',
@@ -18,24 +19,36 @@ export class AppComponent implements OnInit {
     BS: 0,
   };
 
-  constructor() {}
-
-  ngOnInit() {
-    Object.entries(data.data)
-      .filter((c: any) => c[1].category === 'rental')
-      .forEach((c) => this.rentalList.push({ id: c[0], ...c[1] }));
-
-    Object.entries(data.data)
-      .filter((c: any) => c[1].category === 'sale')
-      .forEach((c) => this.saleList.push({ id: c[0], ...c[1] }));
+  constructor(private carService: CarService) {
   }
 
-  addBuyRent(e: { category: string; price: number; moneyType: string }) {
-    if (e.category === 'rental') {
-      this.rental[e.moneyType] = this.rental[e.moneyType] + e.price;
+  ngOnInit() {
+    this.loadData();
+  }
+
+  private loadData(): void {
+    this.rentalList = [];
+    this.saleList = [];
+    this.carService.getAllCars().subscribe(res => {
+      Object.entries(res)
+        .filter((c: any) => c[1].category === 'rental')
+        .forEach((c: any) => this.rentalList.push({id: c[0], ...c[1]}));
+
+      Object.entries(res)
+        .filter((c: any) => c[1].category === 'sale')
+        .forEach((c: any) => this.saleList.push({id: c[0], ...c[1]}));
+    })
+  }
+
+  addBuyRent(car: ICar) {
+    if (car.category === 'rental') {
+      this.rental[car.moneyType] = this.rental[car.moneyType] + car.price;
     }
-    if (e.category === 'sale') {
-      this.sale[e.moneyType] = this.sale[e.moneyType] + e.price;
+    if (car.category === 'sale') {
+      this.sale[car.moneyType] = this.sale[car.moneyType] + car.price;
     }
+    this.carService.updateCar(car.id, {...car, status: 'disabled'}).subscribe(() => {
+      this.loadData();
+    })
   }
 }

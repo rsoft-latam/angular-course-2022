@@ -1,10 +1,11 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
-import { CarComponent } from './car/car.component';
-import { CustomOverDirective } from './utils/custom-over.directive';
-import { CustomPricePipe } from './utils/custom-price.pipe';
+import {AppComponent} from './app.component';
+import {CarComponent} from './car/car.component';
+import {CustomOverDirective} from './utils/custom-over.directive';
+import {CustomPricePipe} from './utils/custom-price.pipe';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { CustomPricePipe } from './utils/custom-price.pipe';
     CustomOverDirective,
     CustomPricePipe,
   ],
-  imports: [BrowserModule],
+  imports: [BrowserModule, HttpClientModule],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+}

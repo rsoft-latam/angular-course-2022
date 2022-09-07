@@ -1,4 +1,4 @@
-<p>1P 2022</p>
+<p>2P 2022</p>
 
 <p>AUTOS NUEVOS</p>
 <p>TOTAL BS: {{sale.BS}}</p>
@@ -6,15 +6,7 @@
 <div style="display: flex; flex-direction: row;">
   <ng-container *ngFor="let car of saleList">
     <app-car
-      [id]="car.id"
-      [category]="car.category"
-      [type]="car.type"
-      [colors]="car.color"
-      [createDate]="car.createDate"
-      [price]="car.price"
-      [moneyType]="car.moneyType"
-      [capacity]="car.capacity"
-      [timeType]="car.timeType"
+      [car]="car"
       (buyRent)="addBuyRent($event)"
     >
     </app-car>
@@ -27,15 +19,7 @@
 <div style="display: flex; flex-direction: row;">
   <ng-container *ngFor="let car of rentalList">
     <app-car
-      [id]="car.id"
-      [category]="car.category"
-      [type]="car.type"
-      [colors]="car.color"
-      [createDate]="car.createDate"
-      [price]="car.price"
-      [moneyType]="car.moneyType"
-      [capacity]="car.capacity"
-      [timeType]="car.timeType"
+      [car]="car"
       (buyRent)="addBuyRent($event)"
     >
     </app-car>
