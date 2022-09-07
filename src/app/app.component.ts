@@ -63,13 +63,13 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   getTotalRent() {
-    this.rentalList.forEach(c => {
+    this.rentalList.filter(c => c.status === 'disabled').forEach(c => {
       this.rental[c.moneyType] = this.rental[c.moneyType] + c.price;
     })
   }
 
   getTotalSale() {
-    this.saleList.forEach(c => {
+    this.saleList.filter(c => c.status === 'disabled').forEach(c => {
       this.sale[c.moneyType] = this.sale[c.moneyType] + c.price;
     })
   }
