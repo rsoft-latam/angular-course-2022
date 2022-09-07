@@ -14,11 +14,11 @@
   <span>Price: {{car.price | customPrice:car.moneyType:car.timeType}}</span>
 
   <ng-container *ngFor="let color of car.color">
-    <!--<button [style.background-color]="color"
+    <button [style.background-color]="color"
             class="btn"
-            (click)="selectedColor = color;">
+            (click)="setColor(color)">
       {{color}}
-    </button>-->
+    </button>
   </ng-container>
 
   <button (click)="onBuyRent()"

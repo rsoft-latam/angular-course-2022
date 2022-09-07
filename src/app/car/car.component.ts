@@ -8,6 +8,7 @@ import {ICar} from "../utils/car.model";
 export class CarComponent {
   @Input() car!: ICar;
   @Output() buyRent = new EventEmitter();
+  @Output() changeColor = new EventEmitter();
 
   showMessage: boolean = false;
   showId: boolean = false;
@@ -18,5 +19,9 @@ export class CarComponent {
   onBuyRent() {
     this.showMessage = true;
     this.buyRent.emit(this.car);
+  }
+
+  setColor(color: any) {
+    this.changeColor.emit(color)
   }
 }
