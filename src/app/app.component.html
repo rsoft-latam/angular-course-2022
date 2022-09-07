@@ -1,5 +1,5 @@
 <p>ANGULAR</p>
-
+<p>----------------TEMPLATE DRIVEN FORMS---------------</p>
 <form #form="ngForm">
   <p>name</p>
   <input type="text"
@@ -22,4 +22,27 @@
   <p>country</p>
   <input type="text" name="country" ngModel>
   <button>Submit</button>
+</form>
+
+<p>----------------REACTIVE FORMS---------------</p>
+
+<form [formGroup]="formR">
+
+  <p>Name</p>
+  <input type="text" [formControlName]="'name'">
+  <div *ngIf="formR.get('name').invalid && ( formR.get('name').touched || formR.get('name').dirty )">
+    <span *ngIf="formR.get('name').hasError('required')">
+    Name is required.
+    </span>
+    <span *ngIf="formR.get('name').hasError('minlength')">
+    Min length is 4.
+    </span>
+  </div>
+
+  <p>Last Name</p>
+  <input type="text" [formControlName]="'lastName'">
+
+  <p>Country</p>
+  <input type="text" [formControlName]="'country'">
+
 </form>
