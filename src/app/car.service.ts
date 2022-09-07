@@ -14,20 +14,19 @@ export class CarService {
   constructor(private http: HttpClient) {
   }
 
-  getAllCars(): Observable<any> {
+  public getAllCars(): Observable<any> {
     return this.http.get(`${this.url}/cars.json`);
   }
 
-  createCar(body: any): Observable<any> {
+  public createCar(body: any): Observable<any> {
     return this.http.post(`${this.url}/cars.json`, body)
   }
 
-  updateCar(id: string, body: ICar): Observable<any> {
-    return this.http.put(`https://${this.url}/cars/${id}.json`, body)
+  public updateCar(id: string, body: ICar): Observable<any> {
+    return this.http.put(`${this.url}/cars/${id}.json`, body)
   }
 
-  deleteCar(id: string): Observable<any> {
+  public deleteCar(id: string): Observable<any> {
     return this.http.delete(`${this.url}/cars/${id}.json`)
   }
-
 }

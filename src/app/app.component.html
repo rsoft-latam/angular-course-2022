@@ -5,11 +5,7 @@
 <p>TOTAL $: {{sale.USD}}</p>
 <div style="display: flex; flex-direction: row;">
   <ng-container *ngFor="let car of saleList">
-    <app-car
-      [car]="car"
-      (buyRent)="addBuyRent($event)"
-      (changeColor)="changeColor(car, $event)"
-    >
+    <app-car [car]="car" (buyRent)="addBuyRent($event)" (changeColor)="changeColor(car, $event)">
     </app-car>
   </ng-container>
 </div>
@@ -19,11 +15,7 @@
 <p>TOTAL $: {{rental.USD}}</p>
 <div style="display: flex; flex-direction: row;">
   <ng-container *ngFor="let car of rentalList">
-    <app-car
-      [car]="car"
-      (buyRent)="addBuyRent($event)"
-      (changeColor)="changeColor(car, $event)"
-    >
+    <app-car [car]="car" (buyRent)="addBuyRent($event)" (changeColor)="changeColor(car, $event)">
     </app-car>
   </ng-container>
 </div>

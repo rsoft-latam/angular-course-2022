@@ -8,8 +8,8 @@ import {Subscription} from "rxjs";
   templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit, OnDestroy {
-  rentalList: any[] = [];
-  saleList: any[] = [];
+  rentalList: ICar[] = [];
+  saleList: ICar[] = [];
 
   sale: any = {
     USD: 0,
@@ -33,6 +33,32 @@ export class AppComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe()
   }
 
+  public addBuyRent(car: ICar) {
+    this.subscription.add(this.carService.updateCar(car.id, {...car, status: 'disabled'}).subscribe(() => {
+      this.loadData();
+    }))
+  }
+
+  public changeColor(car: ICar, color: string): void {
+    this.subscription.add(this.carService.updateCar(car.id, {...car, currentColor: color}).subscribe(() => {
+      this.loadData();
+    }))
+  }
+
+  private getTotalRent() {
+    this.rental = {USD: 0, BS: 0};
+    this.rentalList.filter(c => c.status === 'disabled').forEach(c => {
+      this.rental[c.moneyType] = this.rental[c.moneyType] + c.price;
+    })
+  }
+
+  private getTotalSale() {
+    this.sale = {USD: 0, BS: 0};
+    this.saleList.filter(c => c.status === 'disabled').forEach(c => {
+      this.sale[c.moneyType] = this.sale[c.moneyType] + c.price;
+    })
+  }
+
   private loadData(): void {
     this.rentalList = [];
     this.saleList = [];
@@ -48,30 +74,6 @@ export class AppComponent implements OnInit, OnDestroy {
       this.getTotalSale();
       this.getTotalRent();
     }))
-  }
-
-  public addBuyRent(car: ICar) {
-    this.subscription.add(this.carService.updateCar(car.id, {...car, status: 'disabled'}).subscribe(() => {
-      this.loadData();
-    }))
-  }
-
-  public changeColor(car: ICar, color: string): void {
-    this.subscription.add(this.carService.updateCar(car.id, {...car, currentColor: color}).subscribe(() => {
-      this.loadData();
-    }))
-  }
-
-  getTotalRent() {
-    this.rentalList.filter(c => c.status === 'disabled').forEach(c => {
-      this.rental[c.moneyType] = this.rental[c.moneyType] + c.price;
-    })
-  }
-
-  getTotalSale() {
-    this.saleList.filter(c => c.status === 'disabled').forEach(c => {
-      this.sale[c.moneyType] = this.sale[c.moneyType] + c.price;
-    })
   }
 
 }
