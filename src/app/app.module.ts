@@ -6,6 +6,9 @@ import {CarComponent} from './car/car.component';
 import {CustomOverDirective} from './utils/custom-over.directive';
 import {CustomPricePipe} from './utils/custom-price.pipe';
 import {HttpClientModule} from "@angular/common/http";
+import {RouterModule, Routes} from "@angular/router";
+
+const routes: Routes = [];
 
 @NgModule({
   declarations: [
@@ -14,7 +17,7 @@ import {HttpClientModule} from "@angular/common/http";
     CustomOverDirective,
     CustomPricePipe,
   ],
-  imports: [BrowserModule, HttpClientModule],
+  imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(routes)],
   bootstrap: [AppComponent],
 })
 export class AppModule {
