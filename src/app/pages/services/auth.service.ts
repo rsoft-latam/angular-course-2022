@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {map, Observable} from "rxjs";
 import {environment} from "../../../environments/environment";
 
 @Injectable({
@@ -15,11 +15,29 @@ export class AuthService {
   }
 
   login(body: any): Observable<any> {
-    return this.http.post(`${this.url}/v1/accounts:signInWithPassword?key=${this.apiKey}`, body)
+    return this.http.post(`${this.url}/v1/accounts:signInWithPassword?key=${this.apiKey}`, body).pipe(
+      map((res: any) => {
+        this.authSuccess(res.idToken, res.localId)
+        return res
+      })
+    )
   }
 
   createUser(body: any): Observable<any> {
     return this.http.post(`${this.url}/v1/accounts:signUp?key=${this.apiKey}`, body)
+  }
+
+  private authSuccess(token: string, userId: string): void {
+    localStorage.setItem('token', token);
+    localStorage.setItem('userId', userId)
+  }
+
+  public getToken(): string | null {
+    return localStorage.getItem('token');
+  }
+
+  public getUserId(): string | null {
+    return localStorage.getItem('userId');
   }
 
 }
