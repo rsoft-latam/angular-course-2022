@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../services/auth.service";
 import {Router} from "@angular/router";
 
@@ -6,11 +6,17 @@ import {Router} from "@angular/router";
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss']
 })
-export class AuthComponent {
+export class AuthComponent implements OnInit {
   title = 'test';
 
   constructor(private authService: AuthService,
               private router: Router) {
+  }
+
+  ngOnInit() {
+    /*if(this.authService.verifyLogged()){
+      this.router.navigate(['home'])
+    }*/
   }
 
   onLogin() {

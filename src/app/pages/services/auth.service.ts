@@ -48,4 +48,10 @@ export class AuthService {
     this.router.navigate(['login'])
   }
 
+  public verifyLogged(): boolean {
+    const token = localStorage.getItem('token');
+    // return token ? true : false;
+    return !!token
+  }
+
 }
