@@ -7,6 +7,9 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./core/interceptors/auth.interceptor";
 import {AuthGuard} from "./core/guards/auth.guard";
 import {LoginGuard} from "./core/guards/login.guard";
+import {StoreModule} from "@ngrx/store";
+import {reducers} from "./redux";
+import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 
 const routes: Routes = [
   {
@@ -32,7 +35,10 @@ const routes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+
+    StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument()
   ],
   providers: [
     {

@@ -1335,6 +1335,41 @@
   resolved "https://registry.npmjs.org/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
+"@ngrx/effects@^14.3.1":
+  version "14.3.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-14.3.1.tgz#b22dcbc084c85d02b8ae34a4c6b7ce83f66d58d3"
+  integrity sha512-2+hTlw79f8snayMCBDdVUYaAneowhXJwR0pwhOPAwldv/QufiFaoRA9M26nm9tC4mxIFlGY0gJ03c94/E0sKjQ==
+  dependencies:
+    tslib "^2.0.0"
+
+"@ngrx/entity@^14.3.1":
+  version "14.3.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/entity/-/entity-14.3.1.tgz#598d8e5fe37ba80716705b9d7e1305421b39e6c3"
+  integrity sha512-7YHbJmHEl88IUtw/L34BThaT8kjs3pWPZDVrsJDncvKQUf2NqwiAMSvn6z87OguxUbEmKi4Yqs8vdMGe+a7ZKQ==
+  dependencies:
+    tslib "^2.0.0"
+
+"@ngrx/router-store@^14.3.1":
+  version "14.3.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/router-store/-/router-store-14.3.1.tgz#58647679d907f29f2510cf0f8c4ff10457e5656e"
+  integrity sha512-LN8Wqee4h9sCIhMJbbmCKxnMX6F3aCB2xFXrkYZdF2H0oAL5jznhnALankQRQqzv6/Y6E98nFurthPbaK85dAA==
+  dependencies:
+    tslib "^2.0.0"
+
+"@ngrx/store-devtools@^14.3.1":
+  version "14.3.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/store-devtools/-/store-devtools-14.3.1.tgz#867e3b7afaf393e251b1452b44191e4ef5f5ab5e"
+  integrity sha512-FbCYcMMfR0NbkQdkYlNDscskz3jWbntA1gybndrG9yP8zmPKHUb8i0pPXOXg+gV/jfHM2mKrj4u0SLZCOUdeXw==
+  dependencies:
+    tslib "^2.0.0"
+
+"@ngrx/store@^14.3.1":
+  version "14.3.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-14.3.1.tgz#b371f7cce3c9825ba017b220928228903b3bc31e"
+  integrity sha512-5fKZVxwyawH8wXuYaAkMfPxLJ+GzdXmjWjQtUkMjpa8lsgEBtIs+UdyirgwjBcwYUt0ewp2CM14+Io5eeb8bQA==
+  dependencies:
+    tslib "^2.0.0"
+
 "@ngtools/webpack@14.1.1":
   version "14.1.1"
   resolved "https://registry.npmjs.org/@ngtools/webpack/-/webpack-14.1.1.tgz"
@@ -6011,7 +6046,7 @@ tree-kill@1.2.2:
   resolved "https://registry.npmjs.org/tree-kill/-/tree-kill-1.2.2.tgz"
   integrity sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A==
 
-tslib@2.4.0, tslib@^2.1.0, tslib@^2.3.0, tslib@^2.4.0:
+tslib@2.4.0, tslib@^2.0.0, tslib@^2.1.0, tslib@^2.3.0, tslib@^2.4.0:
   version "2.4.0"
   resolved "https://registry.npmjs.org/tslib/-/tslib-2.4.0.tgz"
   integrity sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==

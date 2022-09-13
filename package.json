@@ -23,7 +23,13 @@
     "zone.js": "^0.11.8",
 
     "@angular/material": "^14.2.1",
-    "@angular/cdk": "^14.2.1"
+    "@angular/cdk": "^14.2.1",
+
+    "@ngrx/store": "^14.3.1",
+    "@ngrx/entity": "^14.3.1",
+    "@ngrx/effects": "^14.3.1",
+    "@ngrx/router-store": "^14.3.1",
+    "@ngrx/store-devtools": "^14.3.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.1.1",
