@@ -37,9 +37,15 @@
   </div>
 </nav>
 
-<div>
+<mat-drawer-container class="example-container" autosize>
 
+  <p>CONTENIDO</p>
   <button class="btn" (click)="onOpenSidePanel()">open Side Panel</button>
   <p>---</p>
   <button class="btn" (click)="onCloseSidePanel()">close Side Panel</button>
-</div>
+
+  <mat-drawer class="example-sidenav" mode="side" [position]="'end'" [opened]="openPanel">
+    <p>FORMULARIO</p>
+  </mat-drawer>
+
+</mat-drawer-container>
