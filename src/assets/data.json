@@ -1,0 +1,49 @@
+{
+  "data": {
+    "001": {
+      "title": "Torneo LoL-siempre-mejor-que-DoTA",
+      "startDate": "2018-06-11",
+      "endDate": "2018-06-15",
+      "events": []
+    },
+    "002": {
+      "title": "Hola pepe",
+      "startDate": "2018-06-27T22:00:00.000Z",
+      "endDate": "2018-06-29T22:00:00.000Z",
+      "events": []
+    },
+    "003": {
+      "title": "Añado algo nuevo",
+      "startDate": "2018-06-29T22:00:00.000Z",
+      "endDate": "2018-08-22T22:00:00.000Z",
+      "events": []
+    },
+    "004": {
+      "title": "asfasfafa",
+      "startDate": "2018-06-27T22:00:00.000Z",
+      "endDate": "2018-06-28T22:00:00.000Z",
+      "events": []
+    },
+    "005": {
+      "title": "shafa",
+      "startDate": "2018-06-27T22:00:00.000Z",
+      "endDate": "2018-07-20T22:00:00.000Z",
+      "events": [],
+      "id": 4
+    },
+    "006": {
+      "title": "Juan Pedro",
+      "startDate": "2018-06-27T22:00:00.000Z",
+      "endDate": "2018-07-05T22:00:00.000Z",
+      "events": []
+    },
+    "007": {
+      "title": "HHHHHH",
+      "startDate": "2018-06-27T22:00:00.000Z",
+      "endDate": "2018-06-29T22:00:00.000Z",
+      "events": []
+    }
+  }
+}
+
+
