@@ -50,7 +50,6 @@ export class AuthService {
 
   public verifyLogged(): boolean {
     const token = localStorage.getItem('token');
-    // return token ? true : false;
     return !!token
   }
 

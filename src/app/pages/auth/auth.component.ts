@@ -1,43 +1,28 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import {AuthService} from "../services/auth.service";
 import {Router} from "@angular/router";
+import {Subscription} from "rxjs";
 
 @Component({
-  templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.scss']
+  templateUrl: './auth.component.html'
 })
-export class AuthComponent implements OnInit {
-  title = 'test';
+export class AuthComponent implements OnDestroy {
 
-  constructor(private authService: AuthService,
-              private router: Router) {
+  subscription: Subscription = new Subscription()
+
+  constructor(private router: Router,
+              private authService: AuthService) {
   }
 
-  ngOnInit() {
-    /*if(this.authService.verifyLogged()){
-      this.router.navigate(['home'])
-    }*/
-  }
-
-  onLogin() {
-    this.authService.login({
-      email: 'test@test.com',
-      password: '123456',
+  public onLogin(form: any): void {
+    this.subscription.add(this.authService.login({
+      ...form.value,
       returnSecureToken: true
-    }).subscribe(res => {
-      console.log('RESPONSE: ', res)
-      this.router.navigate(['home'])
-    })
+    }).subscribe(() => this.router.navigate(['home'])))
   }
 
-  onCreate() {
-    this.authService.createUser({
-      email: 'test2@test.com',
-      password: '123456',
-      returnSecureToken: true
-    }).subscribe(res => {
-      console.log('CREATE USER: ', res)
-    })
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }

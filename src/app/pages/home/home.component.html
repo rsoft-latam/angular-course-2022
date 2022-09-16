@@ -5,7 +5,7 @@
       <path
         d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/>
     </svg>
-    <span class="font-semibold text-xl tracking-tight">Tailwind CSS</span>
+    <span class="font-semibold text-xl tracking-tight">League of Legends</span>
   </div>
   <div class="block lg:hidden">
     <button
@@ -17,15 +17,6 @@
   </div>
   <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
     <div class="text-sm lg:flex-grow">
-      <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-        Docs
-      </a>
-      <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-        Examples
-      </a>
-      <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
-        Blog
-      </a>
     </div>
     <div>
       <button
@@ -39,13 +30,118 @@
 
 <mat-drawer-container class="example-container" autosize>
 
-  <p>CONTENIDO</p>
-  <button class="btn" (click)="onOpenSidePanel()">open Side Panel</button>
-  <p>---</p>
-  <button class="btn" (click)="onCloseSidePanel()">close Side Panel</button>
+  <button (click)="onOpenSidePanel()"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
+    Open Side Panel
+  </button>
+  <button (click)="onCloseSidePanel()"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
+    Close Side Panel
+  </button>
 
-  <mat-drawer class="example-sidenav" mode="side" [position]="'end'" [opened]="openPanel">
-    <p>FORMULARIO</p>
+  <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <ng-container *ngFor="let item of heroes">
+      <div class="p-10">
+        <div class="max-w-sm rounded overflow-hidden shadow-lg">
+          <img class="w-full" src="assets/lol.jpeg" alt="Mountain">
+          <div class="px-6 py-4">
+            <div class="text-gray-700 font-bold text mb-2">{{item.title}}</div>
+            <p class="text-gray-700 text-base">Id: {{item.id}}</p>
+            <p class="text-gray-700 text-base">Start Date: {{item.startDate | date: 'dd/MM/yy'}}</p>
+            <p class="text-gray-700 text-base">End Date: {{item.endDate | date: 'dd/MM/yy'}}</p>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <mat-drawer class="example-sidenav" [mode]="'over'" [position]="'end'" [opened]="openPanel">
+    <form [formGroup]="form">
+      <div class="form-group mb-6">
+        <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Title</label>
+        <input type="text"
+               [formControlName]="'title'"
+               class="form-control
+        block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInputEmail2"
+               aria-describedby="emailHelp"
+               placeholder="Enter Title">
+      </div>
+      <div class="form-group mb-6">
+        <label class="form-label inline-block mb-2 text-gray-700">Start Date</label>
+        <input type="date"
+               [formControlName]="'startDate'"
+               class="form-control block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+               placeholder="Password">
+      </div>
+
+      <div class="form-group mb-6">
+        <label class="form-label inline-block mb-2 text-gray-700">End Date</label>
+        <input type="date"
+               [formControlName]="'endDate'"
+               class="form-control block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+               placeholder="Password">
+      </div>
+      <button type="submit"
+              (click)="addHero()"
+              class="
+      w-full
+      px-6
+      py-2.5
+      bg-blue-600
+      text-white
+      font-medium
+      text-xs
+      leading-tight
+      uppercase
+      rounded
+      shadow-md
+      hover:bg-blue-700 hover:shadow-lg
+      focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
+      active:bg-blue-800 active:shadow-lg
+      transition
+      duration-150
+      ease-in-out">Add
+      </button>
+    </form>
   </mat-drawer>
 
 </mat-drawer-container>
