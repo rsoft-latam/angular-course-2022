@@ -27,7 +27,6 @@ export class RegisterComponent implements OnDestroy {
   }
 
   public onCreateAccount() {
-    console.log('asdasdasdas', this.form.value)
     this.subscription.add(
       this.authService.createUser(this.form.value).subscribe(() => this.router.navigate(['../login']))
     )
